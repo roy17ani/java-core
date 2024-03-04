@@ -1,9 +1,8 @@
-package coreday1;
-
-import com.core.java.day1.MedicineInfo;
-import com.core.java.day1.Ointment;
-import com.core.java.day1.Syrup;
-import com.core.java.day1.Tablet;
+package com.learning.core.day1;
+import com.learning.core.day1.MedicineInfo;
+import com.learning.core.day1.Ointment;
+import com.learning.core.day1.Syrup;
+import com.learning.core.day1.Tablet;
 
 interface MedicineInfo {
 	 void displayLabel();
@@ -46,5 +45,3 @@ public class D01P02 {
 
 
 	}
-
-
