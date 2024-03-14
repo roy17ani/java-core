@@ -1,13 +1,13 @@
 package com.learning.core.day5;
 import java.util.*;
 
-class Person implements Comparable<Person> {
+class Worker implements Comparable<Worker> {
     private int id;
     private String name;
     private int age;
     private double salary;
 
-    public Person(int id, String name, int age, double salary) {
+    public Worker(int id, String name, int age, double salary) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -46,23 +46,23 @@ class Person implements Comparable<Person> {
             return true;
         if (obj == null || getClass() != obj.getClass())
             return false;
-        Person person = (Person) obj;
-        return id == person.id;
+        Worker worker = (Worker) obj;
+        return id == worker.id;
     }
 
     @Override
-    public int compareTo(Person other) {
+    public int compareTo(Worker other) {
         return Integer.compare(this.id, other.id);
     }
 }
 public class D05P07 {
 	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        TreeSet<Person> personSet = new TreeSet<>();
+        TreeSet<Worker> workerSet = new TreeSet<>();
 
-        // Taking input for 6 persons
+        // Taking input for 6 workers
         for (int i = 1; i <= 6; i++) {
-            System.out.println("Enter details for person " + i + ":");
+            System.out.println("Enter details for worker " + i + ":");
             System.out.print("ID: ");
             int id = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -74,12 +74,12 @@ public class D05P07 {
             double salary = scanner.nextDouble();
             scanner.nextLine(); // Consume newline
 
-            personSet.add(new Person(id, name, age, salary));
+            workerSet.add(new Worker(id, name, age, salary));
         }
 
-        // Printing id, name, and salary of each person
-        for (Person person : personSet) {
-            System.out.printf("%d %s %.1f\n", person.getId(), person.getName(), person.getSalary());
+        // Printing id, name, and salary of each worker
+        for (Worker worker : workerSet) {
+            System.out.printf("%d %s %.1f\n", worker.getId(), worker.getName(), worker.getSalary());
         }
     }
 }

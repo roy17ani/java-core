@@ -1,13 +1,13 @@
 package com.learning.core.day5;
 import java.util.*;
 
-class Person implements Comparable<Person> {
+class Individual implements Comparable<Individual> {
     private int id;
     private String name;
     private int age;
     private double salary;
 
-    public Person(int id, String name, int age, double salary) {
+    public Individual(int id, String name, int age, double salary) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -46,24 +46,25 @@ class Person implements Comparable<Person> {
             return true;
         if (obj == null || getClass() != obj.getClass())
             return false;
-        Person person = (Person) obj;
-        return id == person.id;
+        Individual individual = (Individual) obj;
+        return id == individual.id;
     }
 
     @Override
-    public int compareTo(Person other) {
+    public int compareTo(Individual other) {
         return Integer.compare(this.id, other.id);
     }
 }
 
+
 public class D05P10 {
 	public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        TreeSet<Person> personSet = new TreeSet<>();
+        TreeSet<Individual> individualSet = new TreeSet<>();
 
-        // Taking input for 6 persons
+        // Taking input for 6 individuals
         for (int i = 1; i <= 6; i++) {
-            System.out.println("Enter details for person " + i + ":");
+            System.out.println("Enter details for individual " + i + ":");
             System.out.print("ID: ");
             int id = scanner.nextInt();
             scanner.nextLine(); // Consume newline
@@ -75,15 +76,21 @@ public class D05P10 {
             double salary = scanner.nextDouble();
             scanner.nextLine(); // Consume newline
 
-            personSet.add(new Person(id, name, age, salary));
+            individualSet.add(new Individual(id, name, age, salary));
         }
 
-        // Finding and printing the first person whose name starts with "j"
-        for (Person person : personSet) {
-            if (person.getName().toLowerCase().startsWith("j")) {
-                System.out.println("First person whose name starts with 'j': " + person);
+        // Finding and printing the first individual whose name starts with "j"
+        boolean found = false;
+        for (Individual individual : individualSet) {
+            if (individual.getName().toLowerCase().startsWith("j")) {
+                System.out.println("First individual whose name starts with 'j': " + individual);
+                found = true;
                 break;
             }
+        }
+        
+        if (!found) {
+            System.out.println("No individual found whose name starts with 'j'");
         }
     }
 }

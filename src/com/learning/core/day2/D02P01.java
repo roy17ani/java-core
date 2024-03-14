@@ -4,17 +4,17 @@ import java.util.Scanner;
 public class D02P01 {
 
 	public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Enter a number between 1 to 12: ");
-        int monthNumber = scanner.nextInt();
-        
-        if (monthNumber >= 1 && monthNumber <= 12) {
-            String monthName = getMonthName(monthNumber);
-            System.out.println(monthName);
-        } else {
-            System.out.println("Invalid Input");
-        }
+        try (Scanner scanner = new Scanner(System.in)) {
+			System.out.print("Enter a number between 1 to 12: ");
+			int monthNumber = scanner.nextInt();
+			
+			if (monthNumber >= 1 && monthNumber <= 12) {
+			    String monthName = getMonthName(monthNumber);
+			    System.out.println(monthName);
+			} else {
+			    System.out.println("Invalid Input");
+			}
+		}
     }
     
     public static String getMonthName(int monthNumber) {

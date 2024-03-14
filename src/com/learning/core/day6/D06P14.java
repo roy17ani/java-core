@@ -3,13 +3,13 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Scanner;
 
-class Employee {
+class Person {
     private int id;
     private String name;
     private String department;
     private String designation;
 
-    public Employee(int id, String name, String department, String designation) {
+    public Person(int id, String name, String department, String designation) {
         this.id = id;
         this.name = name;
         this.department = department;
@@ -34,26 +34,26 @@ class Employee {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-        Employee employee = (Employee) obj;
-        return id == employee.id;
+        Person person = (Person) obj;
+        return id == person.id;
     }
 }
 public class D06P14 {
 
 	public static void main(String[] args) {
         // Predefined employee details
-        Hashtable<Integer, Employee> employeeTable = new Hashtable<>();
-        employeeTable.put(1001, new Employee(1001, "Grace", "Tech Support", "HR"));
-        employeeTable.put(1002, new Employee(1002, "Robert", "Product Manager", "development"));
-        employeeTable.put(1003, new Employee(1003, "Thomas", "Tester", "Testing"));
-        employeeTable.put(1004, new Employee(1004, "Daniel", "Analyst", "L&D"));
+        Hashtable<Integer, Person> personTable = new Hashtable<>();
+        personTable.put(1001, new Person(1001, "Grace", "Tech Support", "HR"));
+        personTable.put(1002, new Person(1002, "Robert", "Product Manager", "development"));
+        personTable.put(1003, new Person(1003, "Thomas", "Tester", "Testing"));
+        personTable.put(1004, new Person(1004, "Daniel", "Analyst", "L&D"));
 
         // Current collection with some data
-        Hashtable<Integer, Employee> currentCollection = new Hashtable<>();
+        Hashtable<Integer, Person> currentCollection = new Hashtable<>();
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Enter employee details:");
+            System.out.println("Enter person details:");
             System.out.print("ID: ");
             int id = scanner.nextInt();
             scanner.nextLine(); // Consume newline character
@@ -64,22 +64,22 @@ public class D06P14 {
             System.out.print("Designation: ");
             String designation = scanner.nextLine();
 
-            currentCollection.put(id, new Employee(id, name, department, designation));
+            currentCollection.put(id, new Person(id, name, department, designation));
 
-            System.out.print("Do you want to add another employee? (yes/no): ");
+            System.out.print("Do you want to add another person? (yes/no): ");
             String choice = scanner.nextLine();
             if (!choice.equalsIgnoreCase("yes")) {
                 break;
             }
         }
 
-        // Add employee details from current collection to the employee table
-        employeeTable.putAll(currentCollection);
-        System.out.println("Employee details added successfully!");
+        // Add person details from current collection to the person table
+        personTable.putAll(currentCollection);
+        System.out.println("Person details added successfully!");
 
-        // Display the updated employee table
-        System.out.println("Employee Table:");
-        for (Map.Entry<Integer, Employee> entry : employeeTable.entrySet()) {
+        // Display the updated person table
+        System.out.println("Person Table:");
+        for (Map.Entry<Integer, Person> entry : personTable.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
 
